@@ -1,0 +1,33 @@
+@startuml
+set separator none
+title Backend - System Context
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Backend>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Frontend>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+
+rectangle "==Backend\n<size:10>[Software System]</size>" <<Backend>> as Backend
+rectangle "==Frontend\n<size:10>[Software System]</size>" <<Frontend>> as Frontend
+
+Frontend .[#707070,thickness=2].> Backend : "<color:#707070>Uses"
+@enduml

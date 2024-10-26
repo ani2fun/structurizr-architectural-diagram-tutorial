@@ -1,0 +1,49 @@
+@startuml
+set separator none
+title Backend - Containers
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Frontend>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Backend.PrivateAPI>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Backend.PublicAPI>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Backend>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+rectangle "==Frontend\n<size:10>[Software System]</size>" <<Frontend>> as Frontend
+
+rectangle "Backend\n<size:10>[Software System]</size>" <<Backend>> {
+  rectangle "==Private API\n<size:10>[Container]</size>" <<Backend.PrivateAPI>> as Backend.PrivateAPI
+  rectangle "==Public API\n<size:10>[Container]</size>" <<Backend.PublicAPI>> as Backend.PublicAPI
+}
+
+Backend.PublicAPI .[#707070,thickness=2].> Backend.PrivateAPI : "<color:#707070>Uses"
+Frontend .[#707070,thickness=2].> Backend.PublicAPI : "<color:#707070>Uses"
+@enduml

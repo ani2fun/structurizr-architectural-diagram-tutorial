@@ -1,0 +1,21 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["Backend - Containers"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    7["<div style='font-weight: bold'>Frontend</div><div style='font-size: 70%; margin-top: 0px'>[Software System]</div>"]
+    style 7 fill:#dddddd,stroke:#9a9a9a,color:#000000
+
+    subgraph 1 ["Backend"]
+      style 1 fill:#ffffff,stroke:#9a9a9a,color:#9a9a9a
+
+      2["<div style='font-weight: bold'>Private API</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div>"]
+      style 2 fill:#dddddd,stroke:#9a9a9a,color:#000000
+      4["<div style='font-weight: bold'>Public API</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div>"]
+      style 4 fill:#dddddd,stroke:#9a9a9a,color:#000000
+    end
+
+    4-. "<div>Uses</div><div style='font-size: 70%'></div>" .->2
+    7-. "<div>Uses</div><div style='font-size: 70%'></div>" .->4
+  end

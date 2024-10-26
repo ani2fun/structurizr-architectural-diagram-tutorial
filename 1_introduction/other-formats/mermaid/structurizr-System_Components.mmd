@@ -1,0 +1,18 @@
+graph TB
+  linkStyle default fill:#ffffff
+
+  subgraph diagram ["Backend - Private API - Components"]
+    style diagram fill:#ffffff,stroke:#ffffff
+
+    4["<div style='font-weight: bold'>Public API</div><div style='font-size: 70%; margin-top: 0px'>[Container]</div>"]
+    style 4 fill:#dddddd,stroke:#9a9a9a,color:#000000
+
+    subgraph 2 ["Private API"]
+      style 2 fill:#ffffff,stroke:#9a9a9a,color:#9a9a9a
+
+      3["<div style='font-weight: bold'>User Service</div><div style='font-size: 70%; margin-top: 0px'>[Component]</div>"]
+      style 3 fill:#dddddd,stroke:#9a9a9a,color:#000000
+    end
+
+    4-. "<div>Uses</div><div style='font-size: 70%'></div>" .->3
+  end

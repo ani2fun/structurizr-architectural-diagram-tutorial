@@ -1,0 +1,10 @@
+services:
+  structurizr:
+    image: structurizr/onpremises
+    container_name: structurizr-onpremise-tutorial
+    ports:
+      - "8085:8080"  # Expose container's port 8080 on host's port 8085
+    volumes:
+      - ./structurizr-data-store:/usr/local/structurizr  # Mount local data directory
+    environment:
+      - STRUCTURIZR_PROPERTIES_FILE=/usr/local/structurizr/structurizr.properties

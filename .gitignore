@@ -1,0 +1,32 @@
+# Ignore node_modules and dependencies (if any)
+node_modules/
+.DS_Store
+
+# Ignore IntelliJ and other IDE project files
+.idea/
+.vscode/
+*.iml
+
+# Ignore build and Gradle files (if you are using Java/Gradle)
+build/
+.gradle/
+out/
+target/
+
+# Structurizr data store directory (if it contains sensitive data)
+# structurizr-data-store/ # DO NOT COMMENT THIS IN PRODUCTION
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore Docker-related files if not needed in source control
+docker-compose.override.yml
+.env
+
+# Ignore temporary system files
+Thumbs.db
+
+# Ignore anything from scratches
+scratches/

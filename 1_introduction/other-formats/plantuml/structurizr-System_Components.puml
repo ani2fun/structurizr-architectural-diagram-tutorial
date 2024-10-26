@@ -1,0 +1,41 @@
+@startuml
+set separator none
+title Backend - Private API - Components
+
+top to bottom direction
+
+skinparam {
+  arrowFontSize 10
+  defaultTextAlignment center
+  wrapWidth 200
+  maxMessageSize 100
+}
+
+hide stereotype
+
+skinparam rectangle<<Backend.PublicAPI>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Backend.PrivateAPI.UserService>> {
+  BackgroundColor #dddddd
+  FontColor #000000
+  BorderColor #9a9a9a
+  shadowing false
+}
+skinparam rectangle<<Backend.PrivateAPI>> {
+  BorderColor #9a9a9a
+  FontColor #9a9a9a
+  shadowing false
+}
+
+rectangle "==Public API\n<size:10>[Container]</size>" <<Backend.PublicAPI>> as Backend.PublicAPI
+
+rectangle "Private API\n<size:10>[Container]</size>" <<Backend.PrivateAPI>> {
+  rectangle "==User Service\n<size:10>[Component]</size>" <<Backend.PrivateAPI.UserService>> as Backend.PrivateAPI.UserService
+}
+
+Backend.PublicAPI .[#707070,thickness=2].> Backend.PrivateAPI.UserService : "<color:#707070>Uses"
+@enduml
